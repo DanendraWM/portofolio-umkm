@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sejuk Prima Teknik — Servis AC Panggilan Jakarta Timur</title>
+<meta name="description" content="Servis AC panggilan di Jakarta Timur: cuci AC, isi freon, perbaikan, bongkar pasang. Teknisi datang hari ini, garansi 30 hari.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  ============================================================
+  CONTOH WEBSITE UMKM — dibuat untuk portofolio.
+  Yang perlu diganti saat dipakai klien asli:
+  1. Nama usaha "Sejuk Prima Teknik" (cari: Sejuk Prima)
+  2. Nomor WhatsApp: saat ini tombol usaha diarahkan ke WA pembuat (6285156834452) dengan awalan "[Demo website]". Ganti dengan nomor klien dan hapus awalan itu
+  3. Daftar harga, area layanan, jam buka
+  4. Testimoni contoh -> ulasan asli pelanggan
+  5. Link Google Maps di bagian "Lokasi"
+  6. Nama & nomor pembuat di footer (link "Pesan website seperti ini")
+  ============================================================
+-->
+<style>
+:root {
+  --navy: #0b2545;
+  --blue: #1565c0;
+  --ice: #e8f4fd;
+  --ice-2: #d4ebfb;
+  --cta: #f97316;
+  --cta-dark: #ea580c;
+  --wa: #25d366;
+  --text: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --bg: #ffffff;
+  --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.top { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); font-size: 1.05rem; }
+.logo-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #38bdf8, var(--blue)); display: grid; place-items: center; }
+.nav { display: none; gap: 28px; font-size: .92rem; font-weight: 500; color: var(--muted); }
+.nav a:hover { color: var(--blue); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border-radius: 999px; padding: 12px 22px; font-size: .95rem; transition: transform .15s, background .15s, box-shadow .15s; cursor: pointer; border: 0; }
+.btn:active { transform: scale(.97); }
+.btn-cta { background: var(--cta); color: #fff; box-shadow: 0 6px 18px rgba(249,115,22,.35); }
+.btn-cta:hover { background: var(--cta-dark); }
+.btn-ghost { background: #fff; color: var(--navy); border: 1.5px solid var(--line); }
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+.btn-sm { padding: 9px 16px; font-size: .85rem; }
+
+/* Hero */
+.hero { background: radial-gradient(1200px 500px at 80% -10%, var(--ice-2), transparent 60%), linear-gradient(180deg, var(--ice), #fff); padding: 48px 0 56px; overflow: hidden; }
+.hero .wrap { display: grid; gap: 40px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--ice-2); color: var(--blue); font-weight: 600; font-size: .8rem; padding: 6px 14px; border-radius: 999px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--wa); box-shadow: 0 0 0 4px rgba(37,211,102,.2); }
+h1 { font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.12; color: var(--navy); font-weight: 800; letter-spacing: -.02em; margin: 18px 0 16px; }
+h1 em { font-style: normal; color: var(--blue); }
+.lead { font-size: 1.08rem; color: var(--muted); max-width: 520px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 24px; }
+.trust { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: .88rem; color: var(--navy); font-weight: 600; }
+.trust span { display: flex; align-items: center; gap: 6px; }
+.hero-card { position: relative; background: #fff; border-radius: 24px; padding: 26px; box-shadow: 0 30px 60px -20px rgba(11,37,69,.25); border: 1px solid var(--line); }
+.unit { background: linear-gradient(180deg, #fff, #f1f5f9); border: 1px solid var(--line); border-radius: 18px; height: 120px; position: relative; overflow: hidden; }
+.unit::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: 22px; height: 10px; border-radius: 6px; background: repeating-linear-gradient(90deg, #cbd5e1 0 14px, transparent 14px 20px); }
+.unit-led { position: absolute; top: 18px; right: 20px; display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--blue); font-size: 1.4rem; }
+.unit-led small { font-size: .7rem; color: var(--muted); font-weight: 600; }
+.breeze { display: flex; gap: 10px; justify-content: center; margin: 14px 0 18px; }
+.breeze i { width: 4px; height: 34px; border-radius: 4px; background: linear-gradient(180deg, #7dd3fc, transparent); animation: breeze 2.2s ease-in-out infinite; }
+.breeze i:nth-child(2){animation-delay:.2s}.breeze i:nth-child(3){animation-delay:.4s}.breeze i:nth-child(4){animation-delay:.6s}.breeze i:nth-child(5){animation-delay:.8s}
+@keyframes breeze { 0%,100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { .breeze i { animation: none; opacity: .7; } }
+.ticket { display: grid; gap: 10px; }
+.ticket-row { display: flex; justify-content: space-between; align-items: center; font-size: .9rem; padding: 10px 14px; background: var(--ice); border-radius: 12px; }
+.ticket-row b { color: var(--navy); }
+.ok { color: #16a34a; font-weight: 700; font-size: .82rem; }
+.float-badge { position: absolute; left: -12px; top: -18px; background: var(--navy); color: #fff; border-radius: 14px; padding: 10px 16px; font-size: .82rem; font-weight: 600; box-shadow: 0 12px 24px rgba(11,37,69,.3); }
+.float-badge b { color: #7dd3fc; font-size: 1.1rem; display: block; }
+
+/* Sections */
+section { padding: 64px 0; }
+.eyebrow { color: var(--blue); font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--navy); font-weight: 800; letter-spacing: -.01em; line-height: 1.2; margin: 8px 0 12px; }
+.sub { color: var(--muted); max-width: 560px; margin-bottom: 32px; }
+
+/* Problems */
+.probs { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+.prob { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; font-weight: 600; font-size: .92rem; color: var(--navy); background: #fff; }
+.prob-ic { width: 32px; height: 32px; flex: none; border-radius: 9px; background: #fff1e6; display: grid; place-items: center; }
+
+/* Pricing */
+.prices { background: var(--ice); }
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.price { background: #fff; border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; position: relative; }
+.price.hot { border: 2px solid var(--blue); }
+.tag { position: absolute; top: -11px; right: 18px; background: var(--blue); color: #fff; font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+.price h3 { font-size: 1.05rem; color: var(--navy); }
+.price .amt { font-size: 1.7rem; font-weight: 800; color: var(--navy); }
+.price .amt small { font-size: .82rem; color: var(--muted); font-weight: 500; }
+.price p { color: var(--muted); font-size: .88rem; flex: 1; }
+.price .btn { margin-top: 12px; }
+.note { font-size: .85rem; color: var(--muted); margin-top: 18px; }
+
+/* Why */
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.why { padding: 22px; border-radius: var(--radius); border: 1px solid var(--line); }
+.why-ic { width: 44px; height: 44px; border-radius: 12px; background: var(--ice); display: grid; place-items: center; margin-bottom: 14px; }
+.why h3 { font-size: 1rem; color: var(--navy); margin-bottom: 4px; }
+.why p { color: var(--muted); font-size: .9rem; }
+
+/* Steps */
+.steps { background: var(--navy); color: #fff; }
+.steps h2 { color: #fff; }
+.steps .sub { color: #94a3b8; }
+.steps .eyebrow { color: #7dd3fc; }
+.step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; counter-reset: s; }
+.step { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 24px; }
+.step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--cta); font-weight: 800; margin-bottom: 14px; }
+.step h3 { font-size: 1rem; margin-bottom: 4px; }
+.step p { color: #cbd5e1; font-size: .9rem; }
+
+/* Area & testi */
+.split { display: grid; gap: 24px; }
+.card { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip { padding: 7px 14px; border-radius: 999px; background: var(--ice); color: var(--navy); font-size: .85rem; font-weight: 600; }
+.hours { margin-top: 18px; display: grid; gap: 6px; font-size: .9rem; }
+.hours div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--line); padding-bottom: 6px; }
+.testi { display: grid; gap: 12px; margin-top: 14px; }
+.quote { background: var(--ice); border-radius: 14px; padding: 16px; font-size: .9rem; }
+.quote b { display: block; margin-top: 8px; color: var(--navy); font-size: .85rem; }
+.stars { color: #f59e0b; letter-spacing: 2px; font-size: .85rem; }
+.placeholder-note { font-size: .75rem; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+/* FAQ */
+.faq { max-width: 760px; }
+details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+summary { font-weight: 700; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.4rem; line-height: 1; color: var(--blue); transition: transform .2s; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { color: var(--muted); margin-top: 10px; font-size: .93rem; }
+
+/* CTA band */
+.band { background: linear-gradient(135deg, var(--blue), #0ea5e9); color: #fff; border-radius: 24px; padding: 40px 28px; text-align: center; }
+.band h2 { color: #fff; }
+.band p { color: #e0f2fe; margin-bottom: 22px; }
+
+footer { padding: 36px 0 100px; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+footer a { color: var(--blue); font-weight: 600; }
+
+/* Floating WA */
+.wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; background: var(--wa); color: #fff; border-radius: 999px; padding: 14px 20px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 24px rgba(37,211,102,.45); font-size: .92rem; }
+.wa-float:hover { transform: translateY(-2px); }
+
+@media (min-width: 860px) {
+  .nav { display: flex; }
+  .hero { padding: 72px 0 88px; }
+  .hero .wrap { grid-template-columns: 1.1fr .9fr; }
+  .split { grid-template-columns: 1fr 1fr; }
+  section { padding: 88px 0; }
+  .band { padding: 56px; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <span class="logo-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><path d="M12 2v20M4.9 6l14.2 12M19.1 6 4.9 18"/></svg></span>
+      Sejuk Prima Teknik
+    </a>
+    <nav class="nav">
+      <a href="#harga">Harga</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#cara">Cara Order</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-cta btn-sm" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Sejuk%20Prima%2C%20saya%20mau%20servis%20AC" target="_blank" rel="noopener">Pesan Teknisi</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill"><span class="dot"></span> Teknisi siap datang hari ini</span>
+      <h1>AC nggak dingin?<br><em>Kami datang, kamu santai.</em></h1>
+      <p class="lead">Servis AC panggilan untuk rumah, kos, dan kantor di Jakarta Timur. Cuci, isi freon, perbaikan, sampai bongkar pasang — harga jelas sebelum dikerjakan.</p>
+      <div class="hero-cta">
+        <a class="btn btn-cta" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Sejuk%20Prima%2C%20saya%20mau%20servis%20AC" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          Chat WhatsApp Sekarang
+        </a>
+        <a class="btn btn-ghost" href="#harga">Lihat Daftar Harga</a>
+      </div>
+      <div class="trust">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="m5 12 5 5 9-10"/></svg> Garansi 30 hari</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="m5 12 5 5 9-10"/></svg> Harga transparan</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="m5 12 5 5 9-10"/></svg> Semua merek AC</span>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <div class="unit"><div class="unit-led">18°<small>COOL</small></div></div>
+      <div class="breeze"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ticket">
+        <div class="ticket-row"><span>Cuci AC 1 PK</span><b>Rp75.000</b></div>
+        <div class="ticket-row"><span>Cek tekanan freon</span><span class="ok">Gratis</span></div>
+        <div class="ticket-row"><span>Status teknisi</span><span class="ok">● Menuju lokasi</span></div>
+      </div>
+      <div class="float-badge"><b>± 60 menit</b>teknisi tiba</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Masalah yang sering terjadi</span>
+    <h2>Kenali tanda AC kamu butuh servis</h2>
+    <p class="sub">Jangan tunggu rusak parah. Biaya perbaikan bisa jauh lebih mahal daripada servis rutin.</p>
+    <div class="probs">
+      <div class="prob"><span class="prob-ic">🌡️</span>Tidak dingin</div>
+      <div class="prob"><span class="prob-ic">💧</span>Air menetes</div>
+      <div class="prob"><span class="prob-ic">🔊</span>Bunyi berisik</div>
+      <div class="prob"><span class="prob-ic">👃</span>Bau tidak sedap</div>
+      <div class="prob"><span class="prob-ic">⚡</span>Listrik boros</div>
+      <div class="prob"><span class="prob-ic">⏻</span>Mati sendiri</div>
+    </div>
+  </div>
+</section>
+
+<section class="prices" id="harga">
+  <div class="wrap">
+    <span class="eyebrow">Daftar harga</span>
+    <h2>Harga jelas, tanpa biaya tersembunyi</h2>
+    <p class="sub">Teknisi selalu konfirmasi harga sebelum mulai bekerja. Tidak cocok? Tidak ada biaya.</p>
+    <div class="price-grid">
+      <div class="price hot">
+        <span class="tag">Paling laris</span>
+        <h3>Cuci AC</h3>
+        <div class="amt">Rp75rb <small>/ unit 0,5–1 PK</small></div>
+        <p>Pembersihan filter, evaporator, dan unit outdoor. 1,5–2 PK Rp90rb.</p>
+        <a class="btn btn-cta btn-sm" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%2C%20saya%20mau%20pesan%20Cuci%20AC" target="_blank" rel="noopener">Pesan Cuci AC</a>
+      </div>
+      <div class="price">
+        <h3>Isi / Tambah Freon</h3>
+        <div class="amt">Rp150rb <small>mulai dari</small></div>
+        <p>R22, R32, dan R410. Termasuk cek kebocoran pipa.</p>
+        <a class="btn btn-ghost btn-sm" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%2C%20saya%20mau%20isi%20freon%20AC" target="_blank" rel="noopener">Tanya Freon</a>
+      </div>
+      <div class="price">
+        <h3>Perbaikan</h3>
+        <div class="amt">Rp50rb <small>biaya cek</small></div>
+        <p>Diagnosa kerusakan. Biaya cek hangus jika perbaikan dilanjutkan.</p>
+        <a class="btn btn-ghost btn-sm" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%2C%20AC%20saya%20rusak%2C%20bisa%20dicek%3F" target="_blank" rel="noopener">Konsultasi Kerusakan</a>
+      </div>
+      <div class="price">
+        <h3>Bongkar Pasang</h3>
+        <div class="amt">Rp350rb <small>/ unit</small></div>
+        <p>Pindahan rumah atau ganti posisi. Pipa tambahan dihitung terpisah.</p>
+        <a class="btn btn-ghost btn-sm" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%2C%20saya%20mau%20bongkar%20pasang%20AC" target="_blank" rel="noopener">Pesan Bongkar Pasang</a>
+      </div>
+    </div>
+    <p class="note">💡 Langganan servis rutin untuk kos atau kantor (3+ unit)? Tanyakan harga khusus via WhatsApp.</p>
+  </div>
+</section>
+
+<section id="keunggulan">
+  <div class="wrap">
+    <span class="eyebrow">Kenapa Sejuk Prima</span>
+    <h2>Servis yang bikin tenang, bukan was-was</h2>
+    <p class="sub">Kami tahu rasanya takut "dikerjain" tukang servis. Karena itu semuanya kami buat jelas.</p>
+    <div class="why-grid">
+      <div class="why"><div class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Datang di hari yang sama</h3><p>Order sebelum jam 14.00, teknisi datang hari itu juga.</p></div>
+      <div class="why"><div class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Garansi 30 hari</h3><p>Masalah sama muncul lagi? Kami datang ulang tanpa biaya.</p></div>
+      <div class="why"><div class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h10"/></svg></div><h3>Harga dikonfirmasi dulu</h3><p>Tidak ada tambahan biaya tanpa persetujuan kamu.</p></div>
+      <div class="why"><div class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5Z"/></svg></div><h3>Teknisi berpengalaman</h3><p>Menangani semua merek: Daikin, Panasonic, Sharp, LG, Gree, dan lainnya.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="cara">
+  <div class="wrap">
+    <span class="eyebrow">Cara order</span>
+    <h2>Tiga langkah, AC dingin lagi</h2>
+    <p class="sub">Tidak perlu aplikasi, tidak perlu daftar. Cukup WhatsApp.</p>
+    <div class="step-grid">
+      <div class="step"><h3>Chat WhatsApp</h3><p>Ceritakan keluhan AC, jumlah unit, dan alamat kamu.</p></div>
+      <div class="step"><h3>Pilih jadwal</h3><p>Kami konfirmasi jam kedatangan dan estimasi harga.</p></div>
+      <div class="step"><h3>Teknisi datang</h3><p>Dikerjakan rapi, bayar setelah selesai. Bisa tunai atau QRIS.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div class="card">
+      <span class="eyebrow">Area layanan</span>
+      <h2 style="font-size:1.5rem">Melayani Jakarta Timur & sekitarnya</h2>
+      <div class="chips">
+        <span class="chip">Duren Sawit</span><span class="chip">Cakung</span><span class="chip">Jatinegara</span><span class="chip">Pulo Gadung</span><span class="chip">Matraman</span><span class="chip">Kramat Jati</span><span class="chip">Bekasi Barat</span>
+      </div>
+      <div class="hours">
+        <div><span>Senin – Sabtu</span><b>08.00 – 20.00</b></div>
+        <div><span>Minggu & libur</span><b>09.00 – 17.00</b></div>
+      </div>
+      <!-- Ganti href dengan link Google Maps usaha klien -->
+      <a class="btn btn-ghost btn-sm" style="margin-top:18px" href="https://maps.google.com" target="_blank" rel="noopener">📍 Buka di Google Maps</a>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Kata pelanggan</span>
+      <h2 style="font-size:1.5rem">Ulasan pelanggan</h2>
+      <div class="testi">
+        <div class="quote"><span class="stars">★★★★★</span><br>[Ulasan pelanggan asli ditaruh di sini — misalnya tentang kecepatan teknisi datang.]<b>— Nama pelanggan, Lokasi</b></div>
+        <div class="quote"><span class="stars">★★★★★</span><br>[Ulasan pelanggan asli kedua — misalnya tentang harga yang jelas sejak awal.]<b>— Nama pelanggan, Lokasi</b></div>
+      </div>
+      <p class="placeholder-note">Contoh tampilan. Diisi dengan ulasan asli dari Google Maps atau chat pelanggan.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq">
+    <span class="eyebrow">Pertanyaan umum</span>
+    <h2>Yang sering ditanyakan</h2>
+    <details><summary>Berapa lama proses cuci AC?</summary><p>Sekitar 30–45 menit per unit, tergantung tingkat kotoran dan posisi unit outdoor.</p></details>
+    <details><summary>Seberapa sering AC perlu dicuci?</summary><p>Idealnya setiap 3 bulan untuk pemakaian harian, atau 6 bulan untuk pemakaian ringan.</p></details>
+    <details><summary>Apakah ada biaya transport?</summary><p>Gratis untuk area layanan kami. Di luar area, biaya transport dikonfirmasi sebelum teknisi berangkat.</p></details>
+    <details><summary>Bagaimana cara klaim garansi?</summary><p>Cukup chat WhatsApp dengan menyebutkan tanggal servis. Teknisi akan datang ulang tanpa biaya untuk masalah yang sama dalam 30 hari.</p></details>
+    <details><summary>Pembayarannya bagaimana?</summary><p>Bayar setelah pekerjaan selesai dan kamu puas. Bisa tunai, transfer, atau QRIS.</p></details>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <h2>Gerah sedikit lagi, dingin seharian</h2>
+      <p>Chat sekarang, teknisi kami siap datang hari ini.</p>
+      <a class="btn btn-cta" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Sejuk%20Prima%2C%20saya%20mau%20servis%20AC" target="_blank" rel="noopener">Pesan Teknisi via WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Sejuk Prima Teknik · Jakarta Timur</span>
+    <!-- Ganti dengan nama & nomor WhatsApp kamu sebagai pembuat website -->
+    <span>Website oleh Danendra · <a href="https://wa.me/6285156834452?text=Halo%2C%20saya%20mau%20pesan%20website%20untuk%20usaha%20saya" target="_blank" rel="noopener">Pesan website seperti ini</a></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Sejuk%20Prima%2C%20saya%20mau%20servis%20AC" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+  Chat
+</a>
+
+</body>
+</html>

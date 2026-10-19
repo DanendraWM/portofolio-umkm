@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dapur Bu Ratri — Katering Rumahan, Nasi Box & Tumpeng</title>
+<meta name="description" content="Katering rumahan untuk kantor dan acara: nasi box mulai Rp25.000, prasmanan, tumpeng. Masakan rumah, dimasak di hari yang sama.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  ============================================================
+  CONTOH WEBSITE UMKM — dibuat untuk portofolio.
+  Yang perlu diganti saat dipakai klien asli:
+  1. Nama usaha "Dapur Bu Ratri" (cari: Bu Ratri)
+  2. Nomor WhatsApp: saat ini tombol usaha diarahkan ke WA pembuat
+     (6285156834452) dengan awalan "[Demo website]".
+     Ganti dengan nomor klien dan hapus awalan itu
+  3. Menu, harga, minimal order, area kirim
+  4. Ilustrasi menu -> foto masakan asli klien (<img src="...">)
+  5. Ulasan contoh -> ulasan asli pelanggan
+  ============================================================
+-->
+<style>
+:root {
+  --cream: #fbf6ee;
+  --paper: #fffdf8;
+  --brown: #3b2416;
+  --terra: #c2410c;
+  --terra-2: #ea580c;
+  --leaf: #4d7c0f;
+  --gold: #d6a243;
+  --text: #2d2018;
+  --muted: #7a6656;
+  --line: #eadfce;
+  --wa: #25d366;
+  --r: 18px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Work Sans', system-ui, sans-serif; background: var(--cream); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3, .logo, .price-tag { font-family: 'Fraunces', Georgia, serif; }
+
+.top { position: sticky; top: 0; z-index: 40; background: rgba(251,246,238,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { height: 66px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 700; font-size: 1.3rem; color: var(--brown); display: flex; align-items: baseline; gap: 6px; }
+.logo small { font-family: 'Work Sans'; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); font-weight: 600; }
+.nav { display: none; gap: 26px; font-weight: 500; font-size: .93rem; color: var(--muted); }
+.nav a:hover { color: var(--terra); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 13px 22px; font-weight: 600; font-size: .95rem; transition: background .15s, transform .15s; }
+.btn:active { transform: scale(.97); }
+.btn-terra { background: var(--terra); color: #fff; }
+.btn-terra:hover { background: var(--terra-2); }
+.btn-out { border: 1.5px solid var(--brown); color: var(--brown); }
+.btn-out:hover { background: var(--brown); color: var(--cream); }
+.btn-sm { padding: 9px 16px; font-size: .86rem; }
+
+/* Hero */
+.hero { padding: 48px 0 64px; }
+.hero .wrap { display: grid; gap: 40px; align-items: center; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: .82rem; font-weight: 600; color: var(--leaf); letter-spacing: .04em; }
+.eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--leaf); }
+h1 { font-size: clamp(2.3rem, 6.4vw, 3.8rem); line-height: 1.06; color: var(--brown); font-weight: 700; margin: 16px 0 16px; letter-spacing: -.01em; }
+h1 em { color: var(--terra); font-style: italic; font-weight: 500; }
+.lead { font-size: 1.08rem; color: var(--muted); max-width: 500px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 26px; }
+.stats { display: flex; gap: 28px; flex-wrap: wrap; }
+.stats div { border-left: 2px solid var(--gold); padding-left: 12px; }
+.stats b { display: block; font-family: 'Fraunces'; font-size: 1.4rem; color: var(--brown); line-height: 1.2; }
+.stats span { font-size: .84rem; color: var(--muted); }
+
+/* Plate illustration */
+.plate-wrap { justify-self: center; position: relative; width: min(380px, 86vw); aspect-ratio: 1; }
+.plate { position: absolute; inset: 6%; border-radius: 50%; background: radial-gradient(circle, #fff 0 56%, #f3ece1 57% 62%, #fff 63% 100%); box-shadow: 0 30px 50px -20px rgba(59,36,22,.35), inset 0 0 0 1px var(--line); }
+.food { position: absolute; border-radius: 50%; }
+.rice { width: 38%; height: 38%; left: 22%; top: 24%; background: radial-gradient(circle at 40% 35%, #fff, #f5f0e6 70%); box-shadow: inset -6px -8px 0 rgba(0,0,0,.04); }
+.chicken { width: 26%; height: 22%; right: 20%; top: 26%; background: radial-gradient(circle at 35% 30%, #e9a253, #b45309 75%); border-radius: 46% 54% 50% 50%; transform: rotate(-12deg); }
+.veg { width: 22%; height: 18%; right: 24%; bottom: 24%; background: radial-gradient(circle at 40% 40%, #84cc16, #3f6212 80%); border-radius: 50% 40% 55% 45%; }
+.egg { width: 17%; height: 17%; left: 28%; bottom: 22%; background: radial-gradient(circle, #facc15 0 34%, #fff 36%); box-shadow: 0 2px 6px rgba(59,36,22,.18); }
+.sambal { width: 10%; height: 10%; left: 48%; bottom: 20%; background: radial-gradient(circle at 40% 40%, #ef4444, #991b1b); }
+.sticker { position: absolute; right: -2%; top: 4%; width: 104px; height: 104px; border-radius: 50%; background: var(--terra); color: #fff; display: grid; place-items: center; text-align: center; font-weight: 700; font-size: .8rem; line-height: 1.25; transform: rotate(10deg); box-shadow: 0 10px 20px rgba(194,65,12,.3); }
+.sticker b { font-family: 'Fraunces'; font-size: 1.5rem; display: block; }
+
+section { padding: 64px 0; }
+h2 { font-size: clamp(1.8rem, 4.4vw, 2.6rem); color: var(--brown); line-height: 1.12; font-weight: 700; margin: 10px 0 10px; }
+.sub { color: var(--muted); max-width: 560px; margin-bottom: 32px; }
+
+/* Menu */
+.menu { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.menu-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.dish { background: #fff; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; }
+.dish-img { height: 150px; display: grid; place-items: center; font-size: 3.4rem; position: relative; }
+.dish-img span { position: absolute; left: 12px; bottom: 10px; font-size: .7rem; font-weight: 600; background: rgba(255,255,255,.85); padding: 2px 8px; border-radius: 6px; color: var(--muted); }
+.d1 { background: linear-gradient(135deg, #fde7c8, #f8c98a); }
+.d2 { background: linear-gradient(135deg, #e6f0d3, #bfd99a); }
+.d3 { background: linear-gradient(135deg, #fbd5c5, #f2a07f); }
+.d4 { background: linear-gradient(135deg, #f7e7b4, #e9c46a); }
+.dish-body { padding: 18px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.dish h3 { font-size: 1.2rem; color: var(--brown); }
+.dish p { font-size: .88rem; color: var(--muted); flex: 1; }
+.price-tag { font-size: 1.3rem; font-weight: 700; color: var(--terra); }
+.price-tag small { font-family: 'Work Sans'; font-size: .78rem; color: var(--muted); font-weight: 500; }
+.menu-note { margin-top: 22px; font-size: .9rem; color: var(--muted); }
+.menu-note b { color: var(--brown); }
+
+/* Order steps */
+.order { display: grid; gap: 28px; }
+.steps { counter-reset: s; display: grid; gap: 14px; }
+.st { display: flex; gap: 16px; align-items: flex-start; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; }
+.st::before { counter-increment: s; content: counter(s); flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--brown); color: var(--cream); display: grid; place-items: center; font-family: 'Fraunces'; font-weight: 700; }
+.st h3 { font-size: 1.05rem; color: var(--brown); }
+.st p { font-size: .9rem; color: var(--muted); }
+.terms { background: var(--brown); color: var(--cream); border-radius: var(--r); padding: 26px; }
+.terms h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.terms li { list-style: none; padding: 9px 0; border-bottom: 1px dashed rgba(251,246,238,.2); display: flex; gap: 10px; font-size: .93rem; }
+.terms li::before { content: "✦"; color: var(--gold); }
+
+/* Why */
+.why { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.w { padding: 22px; border-radius: var(--r); background: var(--paper); border: 1px solid var(--line); }
+.w .ic { font-size: 1.6rem; }
+.w h3 { font-size: 1.12rem; color: var(--brown); margin: 8px 0 4px; }
+.w p { font-size: .9rem; color: var(--muted); }
+
+/* Reviews */
+.rev { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.q { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; font-family: 'Fraunces'; font-size: 1.05rem; color: var(--brown); }
+.q b { display: block; margin-top: 10px; font-family: 'Work Sans'; font-size: .85rem; color: var(--muted); font-weight: 600; }
+.stars { color: var(--gold); letter-spacing: 2px; font-size: .9rem; }
+.ph { font-size: .76rem; color: var(--muted); font-style: italic; margin-top: 12px; }
+
+details { border-bottom: 1px solid var(--line); padding: 16px 0; }
+summary { cursor: pointer; font-weight: 600; color: var(--brown); list-style: none; display: flex; justify-content: space-between; gap: 14px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: 'Fraunces'; font-size: 1.5rem; line-height: 1; color: var(--terra); transition: transform .2s; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { color: var(--muted); margin-top: 8px; font-size: .94rem; }
+.faq { max-width: 760px; }
+
+.end { background: var(--terra); color: #fff; border-radius: 26px; padding: 46px 26px; text-align: center; }
+.end h2 { color: #fff; }
+.end p { color: #ffedd5; margin-bottom: 22px; }
+.end .btn { background: #fff; color: var(--terra); }
+
+footer { padding: 32px 0 100px; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+footer a { color: var(--terra); font-weight: 600; }
+
+.wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 50; background: var(--wa); color: #fff; padding: 14px 20px; border-radius: 999px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 24px rgba(37,211,102,.4); }
+
+@media (min-width: 860px) {
+  .nav { display: flex; }
+  .hero { padding: 72px 0 88px; }
+  .hero .wrap { grid-template-columns: 1.1fr .9fr; }
+  .order { grid-template-columns: 1.2fr .8fr; align-items: start; }
+  section { padding: 84px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#" class="logo">Dapur Bu Ratri <small>Katering</small></a>
+    <nav class="nav"><a href="#menu">Menu</a><a href="#pesan">Cara Pesan</a><a href="#ulasan">Ulasan</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn-terra btn-sm" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Dapur%20Bu%20Ratri%2C%20saya%20mau%20pesan%20katering" target="_blank" rel="noopener">Pesan Sekarang</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Masakan rumah sejak 2015</span>
+      <h1>Rasa masakan ibu,<br><em>untuk acara kamu.</em></h1>
+      <p class="lead">Nasi box, prasmanan, dan tumpeng untuk rapat kantor, arisan, syukuran, sampai pengajian. Dimasak pagi hari, diantar hangat tepat waktu.</p>
+      <div class="cta">
+        <a class="btn btn-terra" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Dapur%20Bu%20Ratri%2C%20saya%20mau%20pesan%20katering" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          Pesan via WhatsApp
+        </a>
+        <a class="btn btn-out" href="#menu">Lihat Menu & Harga</a>
+      </div>
+      <div class="stats">
+        <div><b>Min. 20 box</b><span>untuk pesanan</span></div>
+        <div><b>H-1</b><span>batas pesan</span></div>
+        <div><b>Gratis ongkir</b><span>min. 50 box</span></div>
+      </div>
+    </div>
+    <div class="plate-wrap" aria-hidden="true">
+      <div class="plate"></div>
+      <span class="food rice"></span><span class="food chicken"></span><span class="food veg"></span><span class="food egg"></span><span class="food sambal"></span>
+      <div class="sticker"><div><b>25rb</b>nasi box<br>mulai</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <span class="eyebrow">Menu andalan</span>
+    <h2>Pilih paket, sisanya kami siapkan</h2>
+    <p class="sub">Semua paket bisa disesuaikan: ganti lauk, tambah buah, atau pilih menu tidak pedas untuk anak-anak.</p>
+    <div class="menu-grid">
+      <div class="dish"><div class="dish-img d1">🍱<span>Foto menu asli</span></div><div class="dish-body"><h3>Nasi Box Hemat</h3><p>Nasi, ayam goreng bumbu kuning, tumis buncis, sambal, kerupuk.</p><div class="price-tag">Rp25.000 <small>/ box</small></div></div></div>
+      <div class="dish"><div class="dish-img d2">🥘<span>Foto menu asli</span></div><div class="dish-body"><h3>Nasi Box Spesial</h3><p>Nasi, rendang atau ayam bakar, sayur, perkedel, sambal, buah, air mineral.</p><div class="price-tag">Rp38.000 <small>/ box</small></div></div></div>
+      <div class="dish"><div class="dish-img d3">🍛<span>Foto menu asli</span></div><div class="dish-body"><h3>Prasmanan</h3><p>3 lauk, 2 sayur, nasi putih, kerupuk, buah, plus peralatan saji lengkap.</p><div class="price-tag">Rp55.000 <small>/ orang, min. 50</small></div></div></div>
+      <div class="dish"><div class="dish-img d4">🍚<span>Foto menu asli</span></div><div class="dish-body"><h3>Tumpeng Nasi Kuning</h3><p>Tumpeng dengan 7 lauk pendamping, lengkap dengan hiasan dan tampah.</p><div class="price-tag">Rp450.000 <small>/ 15 orang</small></div></div></div>
+    </div>
+    <p class="menu-note">Butuh <b>katering harian kantor</b> (makan siang rutin Senin–Jumat)? Ada harga langganan khusus, tanyakan lewat WhatsApp.</p>
+  </div>
+</section>
+
+<section id="pesan">
+  <div class="wrap order">
+    <div>
+      <span class="eyebrow">Cara pesan</span>
+      <h2>Pesan semudah kirim chat</h2>
+      <p class="sub">Tidak perlu datang ke dapur kami. Semua bisa diatur lewat WhatsApp.</p>
+      <div class="steps">
+        <div class="st"><div><h3>Kirim detail acara</h3><p>Tanggal, jam, jumlah porsi, dan alamat pengiriman.</p></div></div>
+        <div class="st"><div><h3>Pilih menu & konfirmasi</h3><p>Kami kirim rincian harga. Bayar DP 50% untuk mengunci tanggal.</p></div></div>
+        <div class="st"><div><h3>Makanan diantar hangat</h3><p>Tiba 30 menit sebelum acara. Pelunasan saat makanan diterima.</p></div></div>
+      </div>
+    </div>
+    <div class="terms">
+      <h3>Ketentuan singkat</h3>
+      <ul>
+        <li>Minimal pesan 20 box atau 50 porsi prasmanan</li>
+        <li>Pemesanan paling lambat H-1 jam 15.00</li>
+        <li>Pesanan di atas 200 porsi, pesan H-3</li>
+        <li>Gratis ongkir mulai 50 box (area Depok)</li>
+        <li>Pembayaran transfer, QRIS, atau tunai</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">Kenapa Dapur Bu Ratri</span>
+    <h2>Seperti masak di rumah, porsi acara</h2>
+    <div class="why" style="margin-top:28px">
+      <div class="w"><div class="ic">🌿</div><h3>Bahan segar tiap pagi</h3><p>Belanja di pasar subuh, dimasak di hari yang sama. Tanpa bahan sisa kemarin.</p></div>
+      <div class="w"><div class="ic">⏰</div><h3>Tepat waktu</h3><p>Makanan tiba 30 menit sebelum acara dimulai, bukan saat tamu sudah lapar.</p></div>
+      <div class="w"><div class="ic">✅</div><h3>Halal & higienis</h3><p>Dapur bersih, bahan halal, dikemas rapi dengan box tertutup.</p></div>
+      <div class="w"><div class="ic">🤝</div><h3>Bisa request</h3><p>Ada tamu vegetarian atau alergi? Tinggal bilang, kami siapkan menu terpisah.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ulasan" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">Kata pelanggan</span>
+    <h2>Ulasan pelanggan</h2>
+    <div class="rev" style="margin-top:24px">
+      <div class="q"><span class="stars">★★★★★</span><br>[Ulasan pelanggan asli — misalnya tentang rasa masakan dan porsi.]<b>— Nama pelanggan, acara</b></div>
+      <div class="q"><span class="stars">★★★★★</span><br>[Ulasan pelanggan asli kedua — misalnya tentang pengiriman tepat waktu.]<b>— Nama pelanggan, acara</b></div>
+    </div>
+    <p class="ph">Contoh tampilan. Diisi dengan ulasan asli dari Google Maps, Instagram, atau chat pelanggan.</p>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <span class="eyebrow">Pertanyaan umum</span>
+    <h2>Yang sering ditanyakan</h2>
+    <details><summary>Bisa pesan kurang dari 20 box?</summary><p>Untuk di bawah 20 box, bisa diambil sendiri atau dikirim dengan ongkir sesuai jarak. Tanyakan ketersediaan lewat WhatsApp.</p></details>
+    <details><summary>Bisa coba rasa dulu (tester)?</summary><p>Bisa, untuk pesanan prasmanan di atas 100 porsi kami siapkan tester gratis.</p></details>
+    <details><summary>Apakah menu bisa diganti?</summary><p>Bisa. Lauk, sayur, dan tingkat pedas bisa disesuaikan tanpa biaya tambahan selama harga bahannya setara.</p></details>
+    <details><summary>Bagaimana jika acara batal?</summary><p>Pembatalan H-2 atau lebih awal, DP dikembalikan penuh. Lewat dari itu, DP digunakan untuk bahan yang sudah dibeli.</p></details>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="end">
+      <h2>Acaranya kamu yang atur, makanannya kami</h2>
+      <p>Cek tanggal acara kamu sekarang, slot akhir pekan cepat penuh.</p>
+      <a class="btn" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Dapur%20Bu%20Ratri%2C%20saya%20mau%20cek%20tanggal%20acara" target="_blank" rel="noopener">Cek Tanggal via WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Dapur Bu Ratri · Depok</span>
+    <span>Website oleh Danendra · <a href="https://wa.me/6285156834452?text=Halo%2C%20saya%20mau%20pesan%20website%20untuk%20usaha%20saya" target="_blank" rel="noopener">Pesan website seperti ini</a></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6285156834452?text=%5BDemo%20website%5D%20Halo%20Dapur%20Bu%20Ratri%2C%20saya%20mau%20pesan%20katering" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+  Chat
+</a>
+</body>
+</html>

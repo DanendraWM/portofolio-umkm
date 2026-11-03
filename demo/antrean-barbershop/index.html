@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Antrean Barbershop — Demo Sistem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; --card:#fff; --main:#b45309; --main-soft:#fef3c7; --ok:#16a34a; --ok-soft:#dcfce7; --run:#2563eb; --run-soft:#dbeafe; --r:14px; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.5; -webkit-font-smoothing:antialiased; }
+button, input, select { font:inherit; }
+.demo-bar { background:#111827; color:#e5e7eb; font-size:.78rem; text-align:center; padding:7px 14px; }
+.demo-bar b { color:#fff; }
+header { background:#1c1917; color:#fff; }
+header .in { max-width:1100px; margin:0 auto; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.brand { display:flex; align-items:center; gap:10px; font-weight:800; }
+.brand .m { width:34px; height:34px; border-radius:9px; background:var(--main); display:grid; place-items:center; }
+.brand small { display:block; font-weight:500; color:#a8a29e; font-size:.75rem; }
+.clock { font-variant-numeric:tabular-nums; color:#d6d3d1; font-size:.85rem; }
+nav { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:5; }
+nav .in { max-width:1100px; margin:0 auto; padding:0 8px; display:flex; overflow-x:auto; }
+nav button { background:none; border:0; padding:13px 14px; font-weight:700; color:var(--muted); border-bottom:3px solid transparent; cursor:pointer; white-space:nowrap; font-size:.9rem; }
+nav button.on { color:var(--main); border-color:var(--main); }
+main { max-width:1100px; margin:0 auto; padding:18px 16px 60px; }
+.view { display:none; } .view.on { display:block; }
+.grid2 { display:grid; gap:16px; }
+@media (min-width:860px){ .grid2 { grid-template-columns: 340px 1fr; align-items:start; } }
+.card { background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:18px; }
+.card h2 { font-size:1rem; margin-bottom:12px; }
+label { display:block; font-size:.8rem; font-weight:700; color:var(--muted); margin:10px 0 4px; }
+input, select { width:100%; padding:11px 12px; border:1.5px solid var(--line); border-radius:10px; background:#fff; }
+input:focus, select:focus { outline:none; border-color:var(--main); }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; border:0; border-radius:10px; padding:11px 16px; font-weight:700; cursor:pointer; }
+.btn-main { background:var(--main); color:#fff; width:100%; margin-top:14px; padding:13px; }
+.btn-sm { padding:7px 11px; font-size:.8rem; border-radius:8px; }
+.b-run { background:var(--run); color:#fff; } .b-ok { background:var(--ok); color:#fff; } .b-ghost { background:#f1f5f9; color:var(--ink); }
+.stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+.stat { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; }
+.stat b { display:block; font-size:1.5rem; font-variant-numeric:tabular-nums; }
+.stat span { font-size:.75rem; color:var(--muted); font-weight:600; }
+.q { display:flex; align-items:center; gap:12px; padding:12px; border:1px solid var(--line); border-radius:12px; margin-bottom:8px; background:#fff; }
+.q .no { width:46px; height:46px; flex:none; border-radius:10px; display:grid; place-items:center; font-weight:800; font-variant-numeric:tabular-nums; background:var(--main-soft); color:var(--main); }
+.q.run .no { background:var(--run-soft); color:var(--run); }
+.q.done { opacity:.6; } .q.done .no { background:var(--ok-soft); color:var(--ok); }
+.q .info { flex:1; min-width:0; }
+.q .info b { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.q .info small { color:var(--muted); font-size:.78rem; }
+.q .act { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+.badge { display:inline-block; font-size:.7rem; font-weight:700; padding:2px 8px; border-radius:999px; }
+.bw { background:var(--main-soft); color:var(--main); } .br { background:var(--run-soft); color:var(--run); } .bo { background:var(--ok-soft); color:var(--ok); }
+.empty { color:var(--muted); font-size:.88rem; text-align:center; padding:18px; }
+.sec-title { font-size:.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; margin:16px 0 8px; }
+/* TV board */
+.tv { background:#1c1917; color:#fff; border-radius:18px; padding:22px; }
+.tv-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:8px; }
+.tv-head h2 { font-size:1.2rem; }
+.tv-grid { display:grid; gap:14px; }
+@media (min-width:700px){ .tv-grid { grid-template-columns:1fr 1fr; } }
+.chairs { display:grid; gap:10px; }
+.chair { background:#292524; border-radius:14px; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.chair .nm { font-size:.8rem; color:#a8a29e; font-weight:600; }
+.chair .cust { font-weight:800; font-size:1.05rem; }
+.chair .num { font-size:2rem; font-weight:800; color:#fbbf24; font-variant-numeric:tabular-nums; }
+.chair.idle .num { color:#57534e; font-size:1rem; }
+.next { background:#292524; border-radius:14px; padding:14px 16px; }
+.next ol { list-style:none; display:grid; gap:8px; margin-top:8px; }
+.next li { display:flex; justify-content:space-between; gap:10px; padding:10px 12px; border-radius:10px; background:#1c1917; }
+.next li b { color:#fbbf24; font-variant-numeric:tabular-nums; }
+.tv small.hint { color:#a8a29e; font-size:.78rem; }
+/* Rekap */
+table { width:100%; border-collapse:collapse; font-size:.82rem; font-variant-numeric:tabular-nums; }
+th { text-align:left; color:var(--muted); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; padding:8px 4px; border-bottom:1.5px solid var(--line); }
+td { padding:9px 4px; border-bottom:1px solid var(--line); }
+td.r, th.r { text-align:right; }
+tfoot td { font-weight:800; border-bottom:0; }
+.tablebox { overflow-x:auto; }
+.note { font-size:.8rem; color:var(--muted); margin-top:12px; }
+.row { display:flex; gap:10px; align-items:end; flex-wrap:wrap; }
+.row > div { flex:1; min-width:140px; }
+footer { text-align:center; font-size:.8rem; color:var(--muted); padding:20px 16px 40px; }
+footer a { color:var(--main); font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="demo-bar"><b>Demo sistem antrean</b> untuk barbershop, dibuat oleh Danendra. Data contoh tersimpan di HP ini saja, silakan dicoba.</div>
+<header><div class="in">
+  <div class="brand"><span class="m">✂️</span><div>Uncle Do Syahdan<small>Sistem antrean & rekap kapster</small></div></div>
+  <div class="clock" id="clock"></div>
+</div></header>
+<nav><div class="in">
+  <button class="on" data-v="kasir">Kasir & Antrean</button>
+  <button data-v="tv">Layar Antrean</button>
+  <button data-v="rekap">Rekap Harian</button>
+  <button data-v="atur">Pengaturan</button>
+</div></nav>
+
+<main>
+<!-- KASIR -->
+<section class="view on" id="v-kasir">
+  <div class="stats">
+    <div class="stat"><b id="s-wait">0</b><span>Menunggu</span></div>
+    <div class="stat"><b id="s-run">0</b><span>Sedang dicukur</span></div>
+    <div class="stat"><b id="s-done">0</b><span>Selesai hari ini</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h2>Pelanggan datang</h2>
+      <form id="f-add">
+        <label for="nama">Nama pelanggan</label>
+        <input id="nama" required placeholder="Contoh: Rizky" autocomplete="off">
+        <label for="hp">No. WhatsApp (opsional)</label>
+        <input id="hp" inputmode="tel" placeholder="08xx">
+        <label for="layanan">Layanan</label>
+        <select id="layanan"></select>
+        <label for="kapster">Kapster</label>
+        <select id="kapster"></select>
+        <button class="btn btn-main" type="submit">+ Masukkan ke antrean</button>
+      </form>
+      <p class="note">Nomor antrean dibuat otomatis. Tidak perlu tulis di buku lagi.</p>
+    </div>
+    <div>
+      <div class="sec-title">Sedang dicukur</div>
+      <div id="l-run"></div>
+      <div class="sec-title">Antrean menunggu</div>
+      <div id="l-wait"></div>
+      <div class="sec-title">Selesai hari ini</div>
+      <div id="l-done"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TV -->
+<section class="view" id="v-tv">
+  <div class="tv">
+    <div class="tv-head"><h2>Antrean Uncle Do Syahdan</h2><small class="hint">Tampilkan di TV ruang tunggu</small></div>
+    <div class="tv-grid">
+      <div class="chairs" id="tv-chairs"></div>
+      <div class="next"><b>Antrean berikutnya</b><ol id="tv-next"></ol></div>
+    </div>
+  </div>
+</section>
+
+<!-- REKAP -->
+<section class="view" id="v-rekap">
+  <div class="card">
+    <h2>Rekap hari ini per kapster</h2>
+    <div class="tablebox"><table>
+      <thead><tr><th>Kapster</th><th class="r">Plg</th><th class="r">Omzet</th><th class="r">Komisi</th></tr></thead>
+      <tbody id="rk-body"></tbody>
+      <tfoot><tr><td>Total</td><td class="r" id="rk-n"></td><td class="r" id="rk-rp"></td><td class="r" id="rk-k"></td></tr></tfoot>
+    </table></div>
+    <p class="note">Komisi dihitung otomatis sesuai persentase di Pengaturan. Owner bisa melihat rekap ini dari HP kapan saja, termasuk untuk semua cabang.</p>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h2>Riwayat layanan hari ini</h2>
+    <div class="tablebox"><table>
+      <thead><tr><th>No</th><th>Jam</th><th>Pelanggan</th><th>Layanan</th><th>Kapster</th><th class="r">Harga</th></tr></thead>
+      <tbody id="rk-hist"></tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- ATUR -->
+<section class="view" id="v-atur">
+  <div class="card">
+    <h2>Kapster</h2>
+    <div id="kp-list"></div>
+    <form id="f-kp" class="row" style="margin-top:10px">
+      <div><label for="kp-new">Tambah kapster</label><input id="kp-new" placeholder="Nama kapster"></div>
+      <button class="btn b-ghost" type="submit">Tambah</button>
+    </form>
+    <label for="komisi">Komisi kapster (%)</label>
+    <input id="komisi" type="number" min="0" max="100">
+  </div>
+  <div class="card" style="margin-top:14px">
+    <h2>Layanan & harga</h2>
+    <div id="ly-list"></div>
+    <p class="note">Harga contoh. Di sistem asli, owner bisa mengubah daftar layanan dan harga sendiri.</p>
+    <button class="btn b-ghost" id="reset" style="margin-top:14px">Reset data demo</button>
+  </div>
+</section>
+</main>
+
+<footer>Demo dibuat oleh Danendra · <a href="https://wa.me/6285156834452?text=Halo%20Danendra%2C%20saya%20tertarik%20dengan%20sistem%20antrean%20barbershop" target="_blank" rel="noopener">Tanya sistem ini via WhatsApp</a></footer>
+
+<script>
+const KEY = 'demo-antrean-uncledo-v1';
+const today = () => new Date().toISOString().slice(0,10);
+const rp = n => 'Rp' + Number(n).toLocaleString('id-ID');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hm = t => new Date(t).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'});
+
+function seed() {
+  const now = Date.now(), m = 60000;
+  return {
+    date: today(), seq: 9, komisi: 40,
+    kapster: ['Bang Andi','Bang Riko','Bang Dimas','Bang Fajar'],
+    layanan: [['Potong + cuci dewasa',40000],['Potong + cuci anak',30000],['Potong + cuci + pijat',55000],['Cukur jenggot',20000],['Semir rambut',75000]],
+    q: [
+      {no:1,nama:'Rizky',lay:0,kap:'Bang Andi',st:'done',t:now-95*m},
+      {no:2,nama:'Pak Herman',lay:2,kap:'Bang Riko',st:'done',t:now-80*m},
+      {no:3,nama:'Dafa (anak)',lay:1,kap:'Bang Dimas',st:'done',t:now-70*m},
+      {no:4,nama:'Yoga',lay:0,kap:'Bang Andi',st:'done',t:now-55*m},
+      {no:5,nama:'Bimo',lay:4,kap:'Bang Fajar',st:'done',t:now-50*m},
+      {no:6,nama:'Arif',lay:0,kap:'Bang Riko',st:'run',t:now-30*m},
+      {no:7,nama:'Kevin',lay:3,kap:'Bang Andi',st:'run',t:now-22*m},
+      {no:8,nama:'Hendra',lay:0,kap:'Bebas',st:'wait',t:now-12*m},
+      {no:9,nama:'Sandi',lay:2,kap:'Bang Dimas',st:'wait',t:now-5*m}
+    ]
+  };
+}
+let S;
+function load() {
+  try { S = JSON.parse(localStorage.getItem(KEY)); } catch(e) { S = null; }
+  if (!S || S.date !== today()) S = seed();
+}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e) {} }
+
+function opts() {
+  document.getElementById('layanan').innerHTML = S.layanan.map((l,i)=>`<option value="${i}">${esc(l[0])} · ${rp(l[1])}</option>`).join('');
+  document.getElementById('kapster').innerHTML = ['Bebas (siapa saja yang kosong)'].concat(S.kapster).map((k,i)=>`<option value="${i?esc(k):'Bebas'}">${esc(k)}</option>`).join('');
+}
+
+function qItem(x) {
+  const l = S.layanan[x.lay] || ['-',0];
+  let act = '';
+  if (x.st==='wait') act = `<button class="btn btn-sm b-run" data-a="run" data-n="${x.no}">Mulai</button>`;
+  if (x.st==='run') act = `<button class="btn btn-sm b-ok" data-a="done" data-n="${x.no}">Selesai</button>`;
+  if (x.st!=='done') act += `<button class="btn btn-sm b-ghost" data-a="del" data-n="${x.no}" aria-label="Hapus">✕</button>`;
+  return `<div class="q ${x.st}"><div class="no">${String(x.no).padStart(2,'0')}</div>
+    <div class="info"><b>${esc(x.nama)}</b><small>${esc(l[0])} · ${esc(x.kap)} · ${hm(x.t)}</small></div>
+    <div class="act">${act}</div></div>`;
+}
+
+function render() {
+  const by = st => S.q.filter(x=>x.st===st);
+  const w = by('wait'), r = by('run'), d = by('done');
+  document.getElementById('s-wait').textContent = w.length;
+  document.getElementById('s-run').textContent = r.length;
+  document.getElementById('s-done').textContent = d.length;
+  const fill = (id, arr, msg) => document.getElementById(id).innerHTML = arr.length ? arr.map(qItem).join('') : `<div class="empty">${msg}</div>`;
+  fill('l-run', r, 'Belum ada yang dicukur.');
+  fill('l-wait', w, 'Antrean kosong.');
+  fill('l-done', d.slice().reverse(), 'Belum ada.');
+
+  // TV
+  document.getElementById('tv-chairs').innerHTML = S.kapster.map(k => {
+    const c = r.find(x=>x.kap===k);
+    return c ? `<div class="chair"><div><div class="nm">${esc(k)}</div><div class="cust">${esc(c.nama)}</div></div><div class="num">${String(c.no).padStart(2,'0')}</div></div>`
+             : `<div class="chair idle"><div><div class="nm">${esc(k)}</div><div class="cust">Kosong</div></div><div class="num">siap</div></div>`;
+  }).join('');
+  document.getElementById('tv-next').innerHTML = w.length ? w.slice(0,6).map(x=>`<li><span>${esc(x.nama)} <small class="hint">· ${esc(x.kap)}</small></span><b>${String(x.no).padStart(2,'0')}</b></li>`).join('') : '<li><span>Tidak ada antrean</span></li>';
+
+  // Rekap
+  let tn=0,trp=0,tk=0;
+  const rows = S.kapster.map(k => {
+    const xs = d.filter(x=>x.kap===k);
+    const sum = xs.reduce((s,x)=>s+(S.layanan[x.lay]||[0,0])[1],0);
+    const kom = Math.round(sum*S.komisi/100);
+    tn+=xs.length; trp+=sum; tk+=kom;
+    return `<tr><td>${esc(k)}</td><td class="r">${xs.length}</td><td class="r">${rp(sum)}</td><td class="r">${rp(kom)}</td></tr>`;
+  }).join('');
+  document.getElementById('rk-body').innerHTML = rows;
+  document.getElementById('rk-n').textContent = tn;
+  document.getElementById('rk-rp').textContent = rp(trp);
+  document.getElementById('rk-k').textContent = rp(tk);
+  document.getElementById('rk-hist').innerHTML = d.length ? d.map(x=>{const l=S.layanan[x.lay]||['-',0];return `<tr><td>${String(x.no).padStart(2,'0')}</td><td>${hm(x.t)}</td><td>${esc(x.nama)}</td><td>${esc(l[0])}</td><td>${esc(x.kap)}</td><td class="r">${rp(l[1])}</td></tr>`}).join('') : '<tr><td colspan="6" class="empty">Belum ada layanan selesai.</td></tr>';
+
+  // Atur
+  document.getElementById('kp-list').innerHTML = S.kapster.map((k,i)=>`<div class="q"><div class="no">✂️</div><div class="info"><b>${esc(k)}</b></div><div class="act"><button class="btn btn-sm b-ghost" data-a="kpdel" data-n="${i}">Hapus</button></div></div>`).join('');
+  document.getElementById('komisi').value = S.komisi;
+  document.getElementById('ly-list').innerHTML = S.layanan.map(l=>`<div class="q"><div class="info"><b>${esc(l[0])}</b></div><b>${rp(l[1])}</b></div>`).join('');
+}
+
+document.getElementById('f-add').addEventListener('submit', e => {
+  e.preventDefault();
+  const nama = document.getElementById('nama').value.trim();
+  if (!nama) return;
+  S.seq += 1;
+  S.q.push({no:S.seq, nama, lay:+document.getElementById('layanan').value, kap:document.getElementById('kapster').value, st:'wait', t:Date.now()});
+  e.target.reset(); save(); render(); document.getElementById('nama').focus();
+});
+document.body.addEventListener('click', e => {
+  const b = e.target.closest('[data-a]'); if (!b) return;
+  const a = b.dataset.a, n = +b.dataset.n;
+  if (a==='kpdel') { S.kapster.splice(n,1); save(); opts(); render(); return; }
+  const x = S.q.find(y=>y.no===n); if (!x) return;
+  if (a==='run') {
+    if (x.kap==='Bebas') { const busy = S.q.filter(y=>y.st==='run').map(y=>y.kap); x.kap = S.kapster.find(k=>!busy.includes(k)) || S.kapster[0]; }
+    x.st='run'; x.t=Date.now();
+  }
+  if (a==='done') { x.st='done'; x.t=Date.now(); }
+  if (a==='del') S.q = S.q.filter(y=>y.no!==n);
+  save(); render();
+});
+document.getElementById('f-kp').addEventListener('submit', e => { e.preventDefault(); const v=document.getElementById('kp-new').value.trim(); if(v){S.kapster.push(v); save(); opts(); render(); e.target.reset();} });
+document.getElementById('komisi').addEventListener('change', e => { S.komisi = Math.max(0,Math.min(100,+e.target.value||0)); save(); render(); });
+document.getElementById('reset').addEventListener('click', () => { S = seed(); save(); opts(); render(); });
+document.querySelectorAll('nav button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x===b));
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on', v.id==='v-'+b.dataset.v));
+}));
+const tick = () => document.getElementById('clock').textContent = new Date().toLocaleString('id-ID',{weekday:'long',hour:'2-digit',minute:'2-digit'});
+load(); opts(); render(); tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>
